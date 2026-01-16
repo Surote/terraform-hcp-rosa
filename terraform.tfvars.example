@@ -1,0 +1,24 @@
+# ROSA HCP Cluster Configuration
+# Copy this file to terraform.tfvars and adjust values as needed
+
+# AWS Region
+region = "ap-southeast-1"
+
+# Cluster name (max 15 characters)
+cluster_name = "rosa-hcp"
+
+# OpenShift version
+openshift_version = "4.20.8"
+
+# Number of default worker nodes
+replicas = 2
+
+# EC2 instance type for default worker nodes
+# See: https://docs.aws.amazon.com/ec2/latest/instancetypes/
+compute_machine_type = "m5.2xlarge"
+
+# VPC CIDR block
+vpc_cidr = "10.0.0.0/16"
+
+# Availability zones
+availability_zones = ["ap-southeast-1a"]
