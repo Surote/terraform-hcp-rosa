@@ -27,14 +27,15 @@ module "rosa_hcp" {
         tags          = {}
       }
     }
-    pool2 = {
-      name              = "gpu-pool"
+    #g6e.8xlarge
+      pool2 = {
+      name              = "gpu-pool-g6e"
       replicas          = 1
       openshift_version = var.openshift_version
       subnet_id         = module.vpc.private_subnets[0]
       auto_repair       = true
       aws_node_pool = {
-        instance_type = "g5g.2xlarge"
+        instance_type = "g6e.8xlarge"
         tags          = {}
       }
     }
