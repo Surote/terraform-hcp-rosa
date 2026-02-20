@@ -1,7 +1,7 @@
 variable "region" {
   description = "The AWS region to deploy into"
   type        = string
-  default     = "ap-southeast-1"
+  default     = "ap-northeast-1"
 }
 
 variable "cluster_name" {
@@ -35,7 +35,13 @@ variable "vpc_cidr" {
 }
 
 variable "availability_zones" {
-  description = "List of availability zones"
+  description = "List of availability zones for the VPC (immutable on existing cluster)"
   type        = list(string)
-  default     = ["ap-southeast-1a"]
+  default     = ["ap-northeast-1a", "ap-northeast-1c"]
+}
+
+variable "cluster_availability_zones" {
+  description = "Availability zones for the ROSA cluster (cannot be changed after creation)"
+  type        = list(string)
+  default     = ["ap-northeast-1a"]
 }

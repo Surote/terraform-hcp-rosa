@@ -1,0 +1,17 @@
+{
+   "Version": "2012-10-17",
+   "Statement": [
+   {
+   "Effect": "Allow",
+   "Condition": {
+     "StringEquals" : {
+       "oidc.op1.openshiftapps.com/2og70oqm6r1r42dcrl5fhk8co8q3k4a2:sub": ["system:serviceaccount:openshift-logging:loki"]
+      }
+    },
+    "Principal": {
+     "Federated": "arn:aws:iam::012499823626:oidc-provider/oidc.op1.openshiftapps.com/2og70oqm6r1r42dcrl5fhk8co8q3k4a2"
+    },
+    "Action": "sts:AssumeRoleWithWebIdentity"
+    }
+    ]
+}
