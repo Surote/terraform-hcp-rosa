@@ -2,7 +2,7 @@
 # Copy this file to terraform.tfvars and adjust values as needed
 
 # AWS Region
-region = "ap-southeast-1"
+region = "ap-northeast-1"
 
 # Cluster name (max 15 characters)
 cluster_name = "rosa-hcp"
@@ -21,4 +21,7 @@ compute_machine_type = "m5.2xlarge"
 vpc_cidr = "10.0.0.0/16"
 
 # Availability zones
-availability_zones = ["ap-southeast-1a"]
+availability_zones = ["ap-northeast-1a", "ap-northeast-1c"]
+
+# Cluster-level AZs (immutable after creation)
+cluster_availability_zones = ["ap-northeast-1a"]

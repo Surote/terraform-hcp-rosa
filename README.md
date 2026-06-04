@@ -19,8 +19,8 @@ Deploy Red Hat OpenShift Service on AWS (ROSA) with Hosted Control Plane (HCP) u
 │  │  │  └───────────────┘  │  │  │  │  2 replicas     │  │  │ │  │
 │  │  └─────────────────────┘  │  │  └─────────────────┘  │  │ │  │
 │  │                           │  │  ┌─────────────────┐  │  │ │  │
-│  │                           │  │  │   gpu-pool      │  │  │ │  │
-│  │                           │  │  │  (g5g.2xlarge)  │  │  │ │  │
+│  │                           │  │  │  gpu-pool-h100  │  │  │ │  │
+│  │                           │  │  │  (p5.4xlarge)   │  │  │ │  │
 │  │                           │  │  │  1 replica      │  │  │ │  │
 │  │                           │  │  └─────────────────┘  │  │ │  │
 │  │                           │  └───────────────────────┘  │ │  │
@@ -51,7 +51,7 @@ cd terraform-hcp-rosa
 ```bash
 export AWS_ACCESS_KEY_ID="your-access-key"
 export AWS_SECRET_ACCESS_KEY="your-secret-key"
-export AWS_DEFAULT_REGION="ap-southeast-1"
+export AWS_DEFAULT_REGION="ap-northeast-1"
 export RHCS_TOKEN="your-rosa-token"  # Get from https://console.redhat.com/openshift/token
 ```
 
@@ -74,13 +74,13 @@ terraform apply
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `region` | `ap-southeast-1` | AWS region for deployment |
+| `region` | `ap-northeast-1` | AWS region for deployment |
 | `cluster_name` | `rosa-hcp` | Cluster name (max 15 characters) |
 | `openshift_version` | `4.20.8` | OpenShift version |
 | `replicas` | `2` | Number of default worker nodes |
 | `compute_machine_type` | `m5.2xlarge` | EC2 instance type (only for new clusters) |
 | `vpc_cidr` | `10.0.0.0/16` | VPC CIDR block |
-| `availability_zones` | `["ap-southeast-1a"]` | Availability zones |
+| `availability_zones` | `["ap-northeast-1a", "ap-northeast-1c"]` | Availability zones |
 
 ## Machine Pools
 
@@ -88,8 +88,8 @@ This configuration includes two additional machine pools:
 
 | Pool | Instance Type | Replicas | Use Case |
 |------|---------------|----------|----------|
-| `compute-pool` | `m5.2xlarge` | 2 | General compute workloads |
-| `gpu-pool` | `g5g.2xlarge` | 1 | GPU/ML workloads |
+| `compute-pool` | `m5.2xlarge` | 2 | General compute workloads (ap-northeast-1a) |
+| `gpu-pool-h100` | `p5.4xlarge` | 1 | NVIDIA H100 GPU/ML workloads (ap-northeast-1c) |
 
 To modify machine pools, edit the `machine_pools` block in `main.tf`.
 

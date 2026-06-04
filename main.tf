@@ -27,21 +27,22 @@ module "rosa_hcp" {
         tags          = {}
       }
     }
-    pool3 = {
-      name              = "gpu-pool-p54"
+    pool2 = {
+      name              = "gpu-pool-h100"
       replicas          = 1
       openshift_version = var.openshift_version
       subnet_id         = module.vpc.private_subnets[1]
       auto_repair       = true
       aws_node_pool = {
         instance_type = "p5.4xlarge"
-        tags          = {}
+        tags = {
+          "nvidia.com/gpu" = "true"
+        }
       }
     }
   }
 
-  # Use contract billing for Red Hat employees
-  aws_billing_account_id = ""
+  aws_billing_account_id = "012499823626"
 
   # STS configuration - create all required roles
   create_account_roles  = true
