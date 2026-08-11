@@ -15,7 +15,7 @@ Deploy Red Hat OpenShift Service on AWS (ROSA) with Hosted Control Plane (HCP) u
 │  │  │  │ NAT Gateway   │  │  │  │   ROSA HCP Cluster    │  │ │  │
 │  │  │  └───────────────┘  │  │  │  ┌─────────────────┐  │  │ │  │
 │  │  │  ┌───────────────┐  │  │  │  │  compute-pool   │  │  │ │  │
-│  │  │  │ Internet GW   │  │  │  │  │  (m5.2xlarge)   │  │  │ │  │
+│  │  │  │ Internet GW   │  │  │  │  │  (c5.4xlarge)   │  │  │ │  │
 │  │  │  └───────────────┘  │  │  │  │  2 replicas     │  │  │ │  │
 │  │  └─────────────────────┘  │  │  └─────────────────┘  │  │ │  │
 │  │                           │  │  ┌─────────────────┐  │  │ │  │
@@ -76,7 +76,7 @@ terraform apply
 |----------|---------|-------------|
 | `region` | `ap-northeast-1` | AWS region for deployment |
 | `cluster_name` | `rosa-hcp` | Cluster name (max 15 characters) |
-| `openshift_version` | `4.20.8` | OpenShift version |
+| `openshift_version` | `4.20.25` | OpenShift version |
 | `replicas` | `2` | Number of default worker nodes |
 | `compute_machine_type` | `m5.2xlarge` | EC2 instance type (only for new clusters) |
 | `vpc_cidr` | `10.0.0.0/16` | VPC CIDR block |
@@ -88,7 +88,7 @@ This configuration includes two additional machine pools:
 
 | Pool | Instance Type | Replicas | Use Case |
 |------|---------------|----------|----------|
-| `compute-pool` | `m5.2xlarge` | 2 | General compute workloads (ap-northeast-1a) |
+| `compute-pool` | `c5.4xlarge` | 2 | General compute workloads (ap-northeast-1a) |
 | `gpu-pool-h100` | `p5.4xlarge` | 1 | NVIDIA H100 GPU/ML workloads (ap-northeast-1c) |
 
 To modify machine pools, edit the `machine_pools` block in `main.tf`.

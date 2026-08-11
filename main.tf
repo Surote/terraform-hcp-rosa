@@ -23,7 +23,7 @@ module "rosa_hcp" {
       subnet_id         = module.vpc.private_subnets[0]
       auto_repair       = true
       aws_node_pool = {
-        instance_type = "m5.2xlarge"
+        instance_type = "c5.4xlarge"
         tags          = {}
       }
     }
