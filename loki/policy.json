@@ -11,8 +11,8 @@
                 "s3:DeleteObject"
             ],
             "Resource": [
-                "arn:aws:s3:::sw-logging-00",
-                "arn:aws:s3:::sw-logging-00/*"
+                "arn:aws:s3:::<LOKI_BUCKET>",
+                "arn:aws:s3:::<LOKI_BUCKET>/*"
             ]
         }
     ]

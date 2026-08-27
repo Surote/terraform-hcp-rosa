@@ -25,3 +25,7 @@ availability_zones = ["ap-northeast-1a", "ap-northeast-1c"]
 
 # Cluster-level AZs (immutable after creation)
 cluster_availability_zones = ["ap-northeast-1a"]
+
+# AWS billing account linked to your Red Hat org in AWS Marketplace.
+# Leave unset (null) to auto-detect.
+aws_billing_account_id = "123456789012"

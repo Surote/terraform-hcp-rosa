@@ -42,7 +42,7 @@ module "rosa_hcp" {
     }
   }
 
-  aws_billing_account_id = "012499823626"
+  aws_billing_account_id = var.aws_billing_account_id
 
   # STS configuration - create all required roles
   create_account_roles  = true

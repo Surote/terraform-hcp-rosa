@@ -45,3 +45,9 @@ variable "cluster_availability_zones" {
   type        = list(string)
   default     = ["ap-northeast-1a"]
 }
+
+variable "aws_billing_account_id" {
+  description = "AWS account linked to the Red Hat org in AWS Marketplace. Set in terraform.tfvars (gitignored); null auto-detects."
+  type        = string
+  default     = null
+}
