@@ -1,7 +1,7 @@
 # ROSA HCP Cluster with all required resources
 module "rosa_hcp" {
   source  = "terraform-redhat/rosa-hcp/rhcs"
-  version = "1.7.1"
+  version = "1.7.6"
 
   cluster_name           = var.cluster_name
   openshift_version      = var.openshift_version
