@@ -13,7 +13,7 @@ variable "cluster_name" {
 variable "openshift_version" {
   description = "OpenShift version for the cluster"
   type        = string
-  default     = "4.20.25"
+  default     = "4.22.20"
 }
 
 variable "replicas" {
